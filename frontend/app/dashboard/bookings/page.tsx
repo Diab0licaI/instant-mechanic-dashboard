@@ -10,7 +10,7 @@ type Booking = {
   id: string;
   customer: any;
   vehicle: any;
-  service: string;
+  service: any;
   mechanic: any;
   status: string;
   amount: number;
@@ -48,7 +48,7 @@ export default function BookingsPage() {
     fetchBookings();
   }, []);
 
-  // Reset to page 1 whenever the filtered set changes shape
+ 
   useEffect(() => {
     setPage(1);
   }, [search, statusFilter]);
