@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/lib/axios";
-import { Wrench, ShieldCheck, Activity, ArrowRight } from "lucide-react";
+import { Wrench, ShieldCheck, Activity, ArrowRight, CarFront } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -37,58 +37,66 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-12 bg-slate-950 text-white selection:bg-blue-600 selection:text-white">
-
-      <div className="lg:col-span-7 relative hidden lg:flex flex-col justify-between p-12 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 border-r border-slate-800/80 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
+    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-12 bg-[#FCFAF7] text-slate-900 selection:bg-orange-500 selection:text-white">
+      
+      {/* Left Branding Column (Matches the warm cream theme & car graphic aesthetic) */}
+      <div className="lg:col-span-7 relative hidden lg:flex flex-col justify-between p-12 bg-[#FCFAF7] border-r border-orange-950/10 overflow-hidden">
+        {/* Subtle background grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb20_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb20_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] pointer-events-none" />
         
+        {/* Top Brand Logo */}
         <div className="relative z-10 flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-600/30">
+          <div className="p-2.5 rounded-xl bg-orange-600 text-white shadow-lg shadow-orange-600/20">
             <Wrench className="w-5 h-5" />
           </div>
-          <span className="font-bold text-lg tracking-tight">Instant Mechanic</span>
+          <span className="font-extrabold text-lg tracking-tight text-slate-900">Instant Mechanic</span>
         </div>
 
-        <div className="relative z-10 space-y-6 max-w-lg my-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-            <Activity className="w-3.5 h-3.5" /> Enterprise Operations Control
+        {/* Center Hero Copy */}
+        <div className="relative z-10 space-y-6 max-w-xl my-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-700 text-xs font-bold uppercase tracking-wider">
+            <CarFront className="w-4 h-4" /> Building India's Largest Car Care Platform
           </div>
           
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Real-time vehicle service command center.
+          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 leading-[1.1]">
+            Your Car Deserves <br />
+            <span className="text-slate-900">Expert Care,</span> <br />
+            <span className="text-orange-600">Not a Gamble.</span>
           </h1>
           
-          <p className="text-slate-400 text-base leading-relaxed">
-            Monitor active dispatches, track field technicians, analyze service revenue metrics, and streamline operations seamlessly across the network.
+          <p className="text-slate-600 text-base leading-relaxed max-w-lg font-medium">
+            One platform for every car need — instant roadside help in 20 minutes, AI-powered diagnosis, transparent repair bills, and complete car care membership across Delhi NCR.
           </p>
 
-          <div className="flex items-center gap-6 pt-4 text-xs text-slate-400 font-medium border-t border-slate-800">
-            <span className="flex items-center gap-1.5 text-emerald-400">
+          <div className="flex items-center gap-6 pt-4 text-xs font-semibold text-slate-500 border-t border-slate-200">
+            <span className="flex items-center gap-1.5 text-emerald-700">
               <ShieldCheck className="w-4 h-4" /> Secure JWT Auth
             </span>
-            <span className="flex items-center gap-1.5 text-blue-400">
-              <Activity className="w-4 h-4" /> Live 30s Polling
+            <span className="flex items-center gap-1.5 text-orange-700">
+              <Activity className="w-4 h-4" /> Live 30s Polling Telemetry
             </span>
           </div>
         </div>
 
-        <div className="relative z-10 text-xs text-slate-500">
+        {/* Footer info */}
+        <div className="relative z-10 text-xs text-slate-400 font-medium">
           © 2026 Instant Mechanic Inc. All rights reserved.
         </div>
       </div>
 
-      <div className="lg:col-span-5 flex items-center justify-center p-6 sm:p-12 bg-white text-slate-900">
+      {/* Right Login Form Column (Clean Contrast White Theme) */}
+      <div className="lg:col-span-5 flex items-center justify-center p-6 sm:p-12 bg-white text-slate-900 shadow-sm">
         <div className="w-full max-w-md space-y-8">
           
           <div className="space-y-2">
             <div className="lg:hidden flex items-center gap-2 mb-6">
-              <div className="p-2 rounded-lg bg-blue-600 text-white">
+              <div className="p-2 rounded-lg bg-orange-600 text-white">
                 <Wrench className="w-4 h-4" />
               </div>
               <span className="font-bold text-base">Instant Mechanic</span>
             </div>
             
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">Welcome back</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900">Welcome back</h2>
             <p className="text-sm text-slate-500">Enter your credentials to access the operations console.</p>
           </div>
 
@@ -100,25 +108,25 @@ export default function LoginPage() {
             )}
 
             <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-slate-600">Email Address</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Email Address</label>
               <Input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="h-11 border-slate-200 focus:border-blue-600 focus:ring-blue-600 text-slate-900"
+                className="h-12 border-slate-200 focus:border-orange-600 focus:ring-orange-600 text-slate-900 bg-slate-50/50 rounded-xl"
                 placeholder="admin@instantmechanic.com"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-slate-600">Password</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Password</label>
               <Input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="h-11 border-slate-200 focus:border-blue-600 focus:ring-blue-600 text-slate-900"
+                className="h-12 border-slate-200 focus:border-orange-600 focus:ring-orange-600 text-slate-900 bg-slate-50/50 rounded-xl"
                 placeholder="••••••••"
               />
             </div>
@@ -126,20 +134,21 @@ export default function LoginPage() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full h-11 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all shadow-md shadow-blue-600/20 gap-2"
+              className="w-full h-12 bg-orange-600 hover:bg-orange-700 text-white font-bold transition-all shadow-lg shadow-orange-600/25 rounded-xl gap-2 text-base"
             >
               {loading ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               ) : (
                 <>Sign in to Dashboard <ArrowRight className="w-4 h-4" /></>
               )}
             </Button>
           </form>
 
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs space-y-1 text-slate-600">
-            <p className="font-semibold text-slate-900">Demo Credentials:</p>
-            <p><span className="text-slate-500">Email:</span> admin@instantmechanic.com</p>
-            <p><span className="text-slate-500">Password:</span> admin123</p>
+          {/* Quick Demo Credentials Helper */}
+          <div className="p-4 rounded-2xl bg-orange-50/60 border border-orange-200/60 text-xs space-y-1.5 text-slate-700">
+            <p className="font-bold text-orange-900">Demo Credentials:</p>
+            <p><span className="text-slate-500 font-medium">Email:</span> <span className="font-mono font-semibold">admin@instantmechanic.com</span></p>
+            <p><span className="text-slate-500 font-medium">Password:</span> <span className="font-mono font-semibold">admin123</span></p>
           </div>
 
         </div>
