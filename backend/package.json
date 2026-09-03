@@ -8,7 +8,9 @@
     "db:format": "prisma format",
     "db:migrate": "prisma migrate dev --name init",
     "db:generate": "prisma generate",
-    "dev": "nodemon --watch src --ext ts --exec tsx src/server.ts"
+    "dev": "nodemon --watch src --ext ts --exec tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
